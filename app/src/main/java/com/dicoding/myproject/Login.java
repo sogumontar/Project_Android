@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 
@@ -17,22 +18,20 @@ public class Login extends AppCompatActivity {
 
 
         // Mengambil data yang dilewatkan melalui Intent
-        View name = findViewById(R.id.username);
-        System.out.println(name);
+        View username = findViewById(R.id.username);
+        View password = findViewById(R.id.password);
 
     }
 
-    public void check(View v) {
-//        final EditText t1= (EditText) findViewById(R.id.username);
-        final EditText t2= (EditText) findViewById(R.id.username1);
-//        final EditText t3= (EditText) findViewById(R.id.Password);
-        final EditText t4= (EditText) findViewById(R.id.Password1);
-
-        if ( t2.getText().equals(t4.getText())) {
-            System.out.println("test");
-            t2.setError("Login Sukses");
-        } else {
-            t2.setError("Login Gagal");
+    public void login(View v) {
+        EditText dd=(EditText)findViewById(R.id.username1);
+        EditText pp=(EditText)findViewById(R.id.Password1);
+        if(new Register().usernameFix.toString().trim().equals(dd) && new Register().passwordFix.toString().trim().equals(pp) ){
+            Toast.makeText(this,"sa",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this,"",Toast.LENGTH_SHORT).show();
+            dd.setError("Username Atau Password Salah");
+            pp.setError("");
         }
     }
 }

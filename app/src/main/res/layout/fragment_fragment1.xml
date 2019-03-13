@@ -16,10 +16,10 @@
          <!--/>-->
 
     <ImageButton
-        android:layout_width="78dp"
-        android:layout_height="104dp"
+        android:layout_width="168dp"
+        android:layout_height="141dp"
         android:id="@+id/button2"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_gravity="left|bottom"
         android:scaleType="fitXY"
         android:src="@drawable/ic_add_shopping_cart_24dp" />
 
