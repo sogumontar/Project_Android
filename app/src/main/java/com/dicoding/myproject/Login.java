@@ -26,8 +26,8 @@ public class Login extends AppCompatActivity {
     public void login(View v) {
         EditText dd=(EditText)findViewById(R.id.username1);
         EditText pp=(EditText)findViewById(R.id.Password1);
-        if(new Register().usernameFix.toString().trim().equals(dd) && new Register().passwordFix.toString().trim().equals(pp) ){
-            Toast.makeText(this,"sa",Toast.LENGTH_SHORT).show();
+        if(new Register().usernameFix.toString().trim().equals(dd.getText().toString().trim()) && new Register().passwordFix.toString().trim().equals(pp.getText().toString().trim()) ){
+            Toast.makeText(this,"Login Sukses",Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this,"",Toast.LENGTH_SHORT).show();
             dd.setError("Username Atau Password Salah");

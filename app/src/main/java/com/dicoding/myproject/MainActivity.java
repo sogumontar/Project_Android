@@ -1,12 +1,15 @@
 package com.dicoding.myproject;
 
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.support.design.internal.BottomNavigationMenu;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +26,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private TextView batteryLevel;
     private ProgressBar mBatteryLevelProgress;
+    private Fragment s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,35 @@ public class MainActivity extends AppCompatActivity {
         mBatteryLevelProgress = (ProgressBar) findViewById(R.id.progressBar);
 
         this.registerReceiver(this.myBatteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        BottomNavigationView ed= (BottomNavigationView) findViewById(R.id.nav);
+        ed.setOnNavigationItemSelectedListener(test);
     }
+    private BottomNavigationView.OnNavigationItemSelectedListener test= new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(MenuItem item) {
+            switch(item.getItemId()){
+                case R.id.account:{
+                    Intent i=new Intent(MainActivity.this,MainActivity.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.shop:{
+                    Intent i=new Intent(MainActivity.this,Barang.class);
+                    startActivity(i);
+                    finish();
+                    break;
+                }
+                case R.id.home:{
+                    Intent i=new Intent(MainActivity.this,MainActivity.class);
+                    startActivity(i);
+                    finish();
+                    break;
+                }
+            }
+            return true;
+        }
+    };
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,22 +89,22 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tesst(View v) {
-        Button s = (Button) findViewById(R.id.off);
-        new AlertDialog.Builder(MainActivity.this).setTitle("Are You Serious?").setMessage("Yes")
-                .setCancelable(false).setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                }).show();
-
-    }
+//    public void tesst(View v) {
+//        Button s = (Button) findViewById(R.id.off);
+//        new AlertDialog.Builder(MainActivity.this).setTitle("Are You Serious?").setMessage("Yes")
+//                .setCancelable(false).setPositiveButton("Ok",
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        dialogInterface.cancel();
+//                    }
+//                }).show();
+//
+//    }
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
+        builder.setCancelable(true);
         builder.setMessage("Do you want to Exit?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

@@ -40,7 +40,10 @@
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".Galery" />
-        <activity android:name=".navigation"></activity>
+        <activity android:name=".navigation" />
+        <activity android:name=".dummy.Barang" />
+        <activity android:name=".Barang" />
+        <activity android:name=".Detail"></activity>
     </application>
 
 </manifest>

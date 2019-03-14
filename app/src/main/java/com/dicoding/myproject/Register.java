@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Register extends AppCompatActivity {
     String usernameFix="";
@@ -21,10 +22,11 @@ public class Register extends AppCompatActivity {
     public void check(View v){
         EditText ed=(EditText) findViewById(R.id.username);
         EditText pw=(EditText) findViewById(R.id.password);
+//        Toast.makeText(this,"Username na adalah"+ed.toString()+"\nPasswordna"+pw,Toast.LENGTH_SHORT).show();
 
-        if(ed.toString().isEmpty()){
+        if(ed.getText().toString().isEmpty()){
             ed.setError("Field Ini Tidak Boleh Kosong");
-        }else if(pw.toString().trim().isEmpty()){
+        }else if(pw.getText().toString().trim().isEmpty()){
             pw.setError("Filed Ini Tidak Boleh Kosong");
         }else{
             usernameFix=ed.toString();

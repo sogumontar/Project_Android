@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.content.Intent;
 
 public class Galery extends AppCompatActivity {
 
@@ -27,6 +28,9 @@ public class Galery extends AppCompatActivity {
 
                 //untuk menampilkan pesan singkat pada pengguna
                 Toast.makeText(getBaseContext(), "" + position, Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(Galery.this,Detail.class);
+                startActivity(i);
+                finish();
             }
         });
     }
@@ -54,9 +58,9 @@ public class Galery extends AppCompatActivity {
             ImageView imageView;
             if (convertView == null) {             // if it's not recycled, initialize some attributes
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+                imageView.setLayoutParams(new GridView.LayoutParams(105, 105));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setPadding(8, 8, 8, 8);
+                imageView.setPadding(9, 9, 9, 9);
             } else {
                 imageView = (ImageView) convertView;
             }
@@ -67,17 +71,7 @@ public class Galery extends AppCompatActivity {
 
         // references to our images
         private Integer[] mThumbIds = {
-                R.drawable.download, R.drawable.b1,
-                R.drawable.download, R.drawable.b2,
-                R.drawable.download, R.drawable.b1,
-                R.drawable.download, R.drawable.b2,
-                R.drawable.download, R.drawable.b1,
-                R.drawable.download, R.drawable.b2,
-                R.drawable.download, R.drawable.b1,
-                R.drawable.download, R.drawable.b2,
-                R.drawable.download, R.drawable.b1,
-                R.drawable.download, R.drawable.b2,
-                R.drawable.download, R.drawable.b1};
+                R.drawable.b2, R.drawable.b1};
     }
 
 }
